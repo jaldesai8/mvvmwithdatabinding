@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DataBindingMVVM</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="log_in">Log in</string>
+    <string name="input_email">inputEmail</string>
+    <string name="invalid_email">Login was successful</string>
+    <string name="invalid_password">Email or Password not valid</string>
+    <string name="username">Username</string>
+</resources>
