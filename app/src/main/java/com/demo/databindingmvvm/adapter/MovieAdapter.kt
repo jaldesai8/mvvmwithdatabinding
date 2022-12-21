@@ -3,18 +3,27 @@ package com.demo.databindingmvvm.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.demo.databindingmvvm.R
-import com.demo.databindingmvvm.model.Result
 import com.demo.databindingmvvm.databinding.ItemMovieBinding
+import com.demo.databindingmvvm.model.Result
+
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     private var movieList = ArrayList<Result>()
-    fun setMovieList(movieList: List<Result>) {
-        this.movieList = movieList as ArrayList<Result>
-        notifyItemChanged(movieList.size)
+//    fun setMovieList(movieList: List<Result>) {
+//        this.movieList = movieList as ArrayList<Result>
+//        notifyItemChanged(movieList.size)
+//    }
+
+    fun setMovieList(newMovieList: List<Result>) {
+        val diffCallback = MovieDiffUtil(movieList,newMovieList as ArrayList<Result>)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        this.movieList.clear()
+        this.movieList.addAll(newMovieList)
+        diffResult.dispatchUpdatesTo(this)
     }
 
     class ViewHolder(val binding: ItemMovieBinding) : RecyclerView.ViewHolder(binding.root)

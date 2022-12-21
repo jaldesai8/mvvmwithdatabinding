@@ -39,16 +39,6 @@
         android:layout_marginTop="5dp">
     </androidx.appcompat.widget.AppCompatTextView>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="adult"
-        android:layout_marginTop="5dp"
-        android:visibility="@{movies.adult == true ? View.VISIBLE : View.INVISIBLE}"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/movieName"
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
